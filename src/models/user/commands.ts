@@ -14,5 +14,17 @@ export const UserCommand = {
           });
         });
     };
+  },
+  searchUsers: (search: string): TAction<UserAction, void> => {
+    return (dispatch: TDispatch<UserAction>) => {
+      return apiFetch().get(`/users`)
+        .then(response => {
+          const users = response.data as User[];
+          dispatch({
+            data: users.filter(user => user.name.toLowerCase().includes(search.toLowerCase())),
+            type: UserActionType.GetUsers
+          });
+        });
+    };
   }
 }

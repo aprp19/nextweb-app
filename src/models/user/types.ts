@@ -31,7 +31,7 @@ export const userDefault: UserModel = {
 }
 
 export enum UserActionType {
-  GetUsers = 'User->GetUsers',
+  GetUsers = 'User->GetUsers'
 }
 
 export type UserAction = {
